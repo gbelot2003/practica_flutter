@@ -6,7 +6,7 @@ import './product_control.dart';
 class ProductManager extends StatefulWidget {
   final String startingProduct;
 
-  ProductManager({this.startingProduct = 'Sweet tester'}){
+  ProductManager({this.startingProduct = 'Sweet tester'}) {
     print('ProductsManager Widget Contructor');
   }
 
@@ -32,9 +32,10 @@ class _productManagerState extends State<ProductManager> {
     print('ProductsManager didUpdateWidget');
     super.didUpdateWidget(oldWidget);
   }
+
   // Esta funcion es para que otro control acceda
   // externamente
-  void _addProduct(String product){
+  void _addProduct(String product) {
     setState(() {
       _products.add(product);
     });
@@ -47,12 +48,17 @@ class _productManagerState extends State<ProductManager> {
       Container(
         margin: EdgeInsets.all(10.0),
         /**
-         * Implementamos el nuevo control y pasamos
-         * la funcion via referencia
-         */
+               * Implementamos el nuevo control y pasamos
+               * la funcion via referencia
+               */
         child: ProductControl(_addProduct),
       ),
-      Products(_products)
+      // Una lista no puede estar directamente
+      // a la par con otro, debe envolverse en un
+      // contenedor
+      Expanded(
+        child: Products(_products),
+      ),
     ]);
   }
 }

@@ -10,7 +10,12 @@ class Products extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('Products Widget Contructor Build()');
-    return Column(
+    /**
+     * Cambiamos el contenedor a ListView
+     * en lugar de contenedor para poder
+     * expander la cantidad de items a mostrar
+     */
+    return ListView(
       children: _products
           .map((element) => Card(
                 child: Column(

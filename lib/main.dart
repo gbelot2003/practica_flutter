@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import './product_manager.dart';
 
-main() => runApp(MyApp());
+//main() => runApp(MyApp());
+void main(){
+  //debugPaintSizeEnabled = true;
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -17,9 +22,7 @@ class MyApp extends StatelessWidget {
           title: Text("Easy List"),
         ), // AppBar
 
-        body: Column(children: <Widget>[
-          ProductManager(),
-        ]),
+        body: ProductManager(),
       ),
     ); // MateriakApp
   }
