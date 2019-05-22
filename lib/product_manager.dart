@@ -32,7 +32,8 @@ class _productManagerState extends State<ProductManager> {
     print('ProductsManager didUpdateWidget');
     super.didUpdateWidget(oldWidget);
   }
-
+  // Esta funcion es para que otro control acceda
+  // externamente
   void _addProduct(String product){
     setState(() {
       _products.add(product);
@@ -45,6 +46,10 @@ class _productManagerState extends State<ProductManager> {
     return Column(children: <Widget>[
       Container(
         margin: EdgeInsets.all(10.0),
+        /**
+         * Implementamos el nuevo control y pasamos
+         * la funcion via referencia
+         */
         child: ProductControl(_addProduct),
       ),
       Products(_products)
